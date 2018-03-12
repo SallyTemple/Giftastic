@@ -2,11 +2,13 @@
 
 h1 {
       text-align: center;
-      background-color: aquamarine;
+      background-color: rgb(250, 226, 9);
+      color: aliceblue;
       margin: 0px;
       padding: 24px;
 }
 
 .container {
     background-color: rgba(250, 171, 68, 0.062);
+    width: 100%;
 }

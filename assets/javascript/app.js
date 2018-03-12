@@ -1,4 +1,4 @@
-$(document).ready(function () {
+
 
       //Array of Food and Drink
       var topics = ["Bacon", "Coffee", "Banana", "Cake", "Burrito", "Hot Dog", "Ice Cream", "Pizza", "Salad", "Steak", "Taco", "French Fries", "Vodka"];
@@ -7,7 +7,7 @@ $(document).ready(function () {
       function foodGifs() {
 
             var topic = $(this).attr("data-name");
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
+            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
             // Clear all image
             $("#restaurants").empty();
@@ -38,7 +38,7 @@ $(document).ready(function () {
                         var state = $(this).attr("data-state");
                         if (state == "still") {
                             $(this).attr("src", $(this).attr("data-animate"));
-                            $(this).attr("data-state", "moving");
+                            $(this).attr("data-state", "animate");
                         } else {
                             $(this).attr("src", $(this).attr("data-still"));
                             $(this).attr("data-state", "still");
@@ -47,19 +47,7 @@ $(document).ready(function () {
                     });
                   //Creating a div to hold the foodanddrink div
                   var foodandDrinkDiv = $("<div class='foodandDrinks'>");
-
-
-
-                  // Retrieve the URL for the image
-                  var imgURL = response.Poster;
-                  // An element to hold the image
-                  var image = $("<img>").attr("src", imgURL);
-                  //Append the image
-                  foodandDrinkDiv.append(image);
-
-                  // Putting the entire food and drink above the previous food and drink
-                  $("#foodanddrink").prepend(foodandDrinkDiv);
-
+                
             });
       }
 
@@ -94,10 +82,8 @@ $(document).ready(function () {
             $(".foodandDrink-btn").on("click", foodGifs)
       });
 
-      // Adding a click event listener to all elements with a class of "foodanddrink-button"
-      $(document).on("click", ".foodandDrink-btn", "displayfoodanddrinkInfo");
+     
 
       // Calling the renderButtons function to display the intial buttons
       buttonOne();
       $(".foodandDrink-btn").on("click", foodGifs)
-});
