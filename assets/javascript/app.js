@@ -7,7 +7,7 @@ $(document).ready(function () {
       function displayfoodanddrinkInfo() {
 
             var topic = $(this).attr("data-name");
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=YzjeY9CnUmvckOqF1cQ1FARomFOsWsde&limit=10";
+            var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
             // Creating an AJAX call for food and drink being clicked
             $.ajax({
