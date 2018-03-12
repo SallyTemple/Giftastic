@@ -17,26 +17,35 @@ $(document).ready(function () {
                   url: queryURL,
                   method: "GET"
             }).then(function (response) {
-
                   var outcome = response.data;
                   for (var i = 0; i < outcome.length; i++) {
                         var yum = $("<img");
                         yum.attr("data-still", outcome[i].images.fixed_height_still.url);
-                        yum.attr("data-moving", outcome[i].images.fixed_height.url);
+                        yum.attr("data-animate", outcome[i].images.fixed_height.url);
                         yum.attr("src", outcome[i].images.fixed_height_still.url);
                         yum.attr("data-state", "still");
-                        yum.attr("class", "pics");
+                        yum.attr("class", "snippet");
                         var rating = $("<p>").text("Rated: " + outcome[i].rating);
-                        
-                        //Storing the rating data
-                        var rating = response.Rated;
-                        //Creating an element for rating display
-                        var piOne = $("<p>").text("Rating: " + rating);
-                        //Display the rating
-                        foodandDrinkDiv.append(piOne);
-
+                       
+                        //Storing in each div
+                        var driveThru = $("<div>").attr("id", topic + i);
+                        driveThru.addClass("diner");
+                        driveThru.prepend(rating);
+                        driveThru.prepend(yum);
+                        $("#divide").prepend(gifBox);  
                   }
-                  //Creating a div to hold the movie
+                  $(".snippet").on("click", function() {
+                        var state = $(this).attr("data-state");
+                        if (state == "still") {
+                            $(this).attr("src", $(this).attr("data-animate"));
+                            $(this).attr("data-state", "moving");
+                        } else {
+                            $(this).attr("src", $(this).attr("data-still"));
+                            $(this).attr("data-state", "still");
+                          
+                        }
+                    });
+                  //Creating a div to hold the foodanddrink div
                   var foodandDrinkDiv = $("<div class='foodandDrinks'>");
 
 
@@ -54,7 +63,7 @@ $(document).ready(function () {
             });
       }
 
-      //Function for displaying movie data
+      //Function for displaying food and drink data
       function buttonOne() {
             // Delete the food and drink prior to adding new food and drink options
             $("#foodanddrink-button").empty();
