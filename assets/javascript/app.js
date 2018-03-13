@@ -7,7 +7,7 @@ function foodGifs() {
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=xcvJERHxACTID600aftT3tWzPMEh7PaK&limit=10";
 
       // Clear all image
-      $("#restaurants").empty();
+  
 
       // Creating an AJAX call for food and drink being clicked.
       $.ajax({
