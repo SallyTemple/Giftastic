@@ -4,12 +4,12 @@ var topics = ["Bacon", "Coffee", "Banana", "Burrito", "Ice Cream", "Pizza", "Sal
 function foodGifs() {
 
       var topic = $(this).attr("data-name");
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10";
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=xcvJERHxACTID600aftT3tWzPMEh7PaK&limit=10";
 
       // Clear all image
       $("#restaurants").empty();
 
-      // Creating an AJAX call for food and drink being clicked
+      // Creating an AJAX call for food and drink being clicked.
       $.ajax({
             url: queryURL,
             method: "GET"
@@ -48,8 +48,8 @@ function foodGifs() {
       });
 }
 
-
 $(document).ready(function () {
+
       // This function handles events where a foodanddrink button is clicked
       $("#add-foodanddrink").on("click", function() {
             event.preventDefault();
